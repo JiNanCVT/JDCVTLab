@@ -9,8 +9,10 @@ namespace StudentSort
     /// <summary>
     /// 命令的基类
     /// </summary>
-    abstract public class Command
+    abstract public class BaseCommand : StudentSort.ICommand
     {
+        protected const string _exit = "exit";
+
         protected List<string> _helpMessage;
 
         /// <summary>
@@ -22,7 +24,8 @@ namespace StudentSort
             ShowAllHelpMessage();
             try
             {
-                return Execute();
+                string str = ReadLine();
+                return Execute(str);
             }
             //如果执行命令出错，从新执行命令
             catch (CommandErrorException ce)
@@ -32,13 +35,41 @@ namespace StudentSort
             }
         }
 
+
+
+        private string ReadLine()
+        {
+            string str = string.Empty;
+            while (true)
+            {
+
+                var k = Console.ReadKey(true);
+                
+                //如果用户按了Esc键，打断本命令的执行
+                if (k.Key == ConsoleKey.Escape)
+                    throw new InterruptCommandException();
+
+                if (k.Key == ConsoleKey.Enter)
+                {
+                    Console.WriteLine();
+                    break;
+                }
+
+                str += k.KeyChar;
+                Console.Write(k.KeyChar);
+            }
+            
+            if (str == _exit)
+                throw new ExitException();
+
+            return str;
+
+        }
+
         /// <summary>
         /// 执行命令
         /// </summary>
-        protected virtual Object Execute()
-        {
-            throw new NotImplementedException();
-        }
+        protected abstract Object Execute(string str);
 
         private void ShowAllHelpMessage()
         {
@@ -46,6 +77,15 @@ namespace StudentSort
             {
                 Console.WriteLine(m);
             }
+        }
+
+        public class ExitException : Exception
+        {
+        }
+
+        public class InterruptCommandException : Exception
+        {
+            
         }
 
 

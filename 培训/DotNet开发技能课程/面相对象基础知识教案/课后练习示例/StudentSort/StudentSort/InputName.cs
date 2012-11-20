@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentSort
 {
-    public class InputName:Command
+    public class InputName:BaseCommand
     {
         public InputName()
         {
@@ -14,9 +14,9 @@ namespace StudentSort
             _helpMessage.Add("请输入学生姓名。");
         }        
 
-        protected override object Execute()
+        protected override object Execute(string str)
         {
-            return Console.ReadLine();
+            return str;
         }
 
     }

@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command.cs" />
+    <Compile Include="ICommand.cs" />
     <Compile Include="InputName.cs" />
     <Compile Include="InputScore.cs" />
     <Compile Include="InputStudentCommand.cs" />

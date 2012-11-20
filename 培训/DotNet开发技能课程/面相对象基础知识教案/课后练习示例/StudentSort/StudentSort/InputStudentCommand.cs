@@ -9,25 +9,26 @@ namespace StudentSort
     /// <summary>
     /// 输入学生信息命令
     /// </summary>
-    public class InputStudentCommand:Command
+    public class InputStudentCommand:ICommand
     {
         List<Student> _students;
+        List<string> _helpMessage;
+
         public InputStudentCommand(List<Student> students)
         {
             _students = students;
             _helpMessage = new List<string>();
-            _helpMessage.Add("输入学生姓名和成绩。");
-            _helpMessage.Add("按Ctrl+C键停止录入学生姓名和成绩。");
-            Console.CancelKeyPress += Console_CancelKeyPress;
+            _helpMessage.Add("请输入学生姓名和分数。");
+            _helpMessage.Add("按Esc键停止输入学生姓名和分数。");
         }
 
-        void Console_CancelKeyPress(object sender, ConsoleCancelEventArgs e)
+        public object ExecuteCommand()
         {
-            Console.WriteLine("停止了录入学生姓名和成绩.");
-        }
+            foreach (var msg in _helpMessage)
+            {
+                Console.WriteLine(msg);
+            }
 
-        protected override object Execute()
-        {
             try
             {
                 while (true)
@@ -40,9 +41,9 @@ namespace StudentSort
                     _students.Add(s);
                 }
             }
-            catch (Exception )
+            catch (StudentSort.BaseCommand.InterruptCommandException)
             {
-                
+                Console.WriteLine("退出输入学生姓名、成绩。");
             }
 
             return null;

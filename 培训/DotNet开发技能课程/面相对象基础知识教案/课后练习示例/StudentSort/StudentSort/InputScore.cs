@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentSort
 {
-    public class InputScore:Command
+    public class InputScore:BaseCommand
     {
         public InputScore()
         {
@@ -15,9 +15,8 @@ namespace StudentSort
         }
 
 
-        protected override object Execute()
+        protected override object Execute(string str)
         {
-            var str = Console.ReadLine();
             try
             {
                 return int.Parse(str);
