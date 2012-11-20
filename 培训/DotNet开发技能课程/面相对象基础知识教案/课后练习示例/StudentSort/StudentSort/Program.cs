@@ -10,6 +10,12 @@ namespace StudentSort
     {
         static void Main(string[] args)
         {
+
+            List<Student> students = new List<Student>();
+            InputStudentCommand command = new InputStudentCommand(students);
+            command.ExecuteCommand();
+            Console.WriteLine("abc");
+            Console.ReadLine();
         }
     }
 }

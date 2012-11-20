@@ -9,7 +9,7 @@ namespace StudentSort
     /// <summary>
     /// 学生类
     /// </summary>
-    class Student:Person
+    public class Student:Person
     {
         private int _score;
 

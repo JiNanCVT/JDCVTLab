@@ -11,33 +11,31 @@ namespace StudentSort
     /// </summary>
     abstract public class Command
     {
-
         protected List<string> _helpMessage;
 
         /// <summary>
         /// 执行命令
         /// </summary>
-        private void ExecuteCommand()
+        public Object ExecuteCommand()
         {
            //显示提示信息
             ShowAllHelpMessage();
             try
             {
-                Execute();
+                return Execute();
             }
             //如果执行命令出错，从新执行命令
             catch (CommandErrorException ce)
             {
                 Console.WriteLine(ce.Message);
-                ExecuteCommand();
+                return ExecuteCommand();
             }
-
         }
 
         /// <summary>
         /// 执行命令
         /// </summary>
-        public virtual bool Execute()
+        protected virtual Object Execute()
         {
             throw new NotImplementedException();
         }
@@ -53,7 +51,12 @@ namespace StudentSort
 
         public class CommandErrorException : Exception
         {
+
+            public CommandErrorException(string message):base(message)
+            {
+            }
         }
-       
+
+
     }
 }

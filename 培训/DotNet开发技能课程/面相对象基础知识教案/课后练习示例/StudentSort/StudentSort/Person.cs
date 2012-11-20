@@ -11,7 +11,7 @@ namespace StudentSort
     /// 其实在此示例中，只有学生，没有老师，没有必要写几个基类“人”。
     /// 示例为了演示继承，而写个person。
     /// </summary>
-    class Person
+    public class Person
     {
         
         string _name;
