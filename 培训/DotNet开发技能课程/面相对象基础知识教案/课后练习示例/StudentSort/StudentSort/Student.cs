@@ -19,7 +19,14 @@ namespace StudentSort
         public int Score
         {
             get { return _score; }
-            set { _score = value; }
+            set 
+            {
+                if (value < 0)
+                {
+                    throw new InvalidScoreException();
+                }
+                _score = value; 
+            }
         }
 
         /// <summary>
@@ -27,6 +34,7 @@ namespace StudentSort
         /// </summary>
         public Student()
         {
+            _score = -1;
         }
         /// <summary>
         /// 注意base这种用法
@@ -35,7 +43,9 @@ namespace StudentSort
         /// <param name="score"></param>
         public Student(string name, int score):base(name)
         {
-            _score = score;
+            Score = score;
         }
+
+        public class InvalidScoreException : Exception { }
     }
 }

@@ -41,11 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Command.cs" />
-    <Compile Include="ICommand.cs" />
-    <Compile Include="InputName.cs" />
-    <Compile Include="InputScore.cs" />
-    <Compile Include="InputStudentCommand.cs" />
+    <Compile Include="CommandsManagement.cs" />
+    <Compile Include="Commands\ExitCommad.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\InputStudentCommand.cs" />
+    <Compile Include="Commands\OrderByNameAscCommand.cs" />
+    <Compile Include="Commands\OrderByScoreAscCommand.cs" />
+    <Compile Include="Commands\ShowStudentsCommad.cs" />
+    <Compile Include="Doc.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

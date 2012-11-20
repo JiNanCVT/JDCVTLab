@@ -3,6 +3,9 @@ namespace StudentSort
 {
     interface ICommand
     {
-        object ExecuteCommand();
+        
+        void ExecuteCommand();
+        
     }
+    
 }
