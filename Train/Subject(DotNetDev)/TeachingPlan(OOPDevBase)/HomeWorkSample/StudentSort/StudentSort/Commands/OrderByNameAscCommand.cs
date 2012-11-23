@@ -21,6 +21,7 @@ namespace StudentSort
 
         public OrderByNameAscCommand()
         {
+            Console.WriteLine("按学生名字升序排列");
         }
 
         public void ExecuteCommand()
