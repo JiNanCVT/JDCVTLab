@@ -55,7 +55,6 @@
     </ApplicationDefinition>
     <Compile Include="City.cs" />
     <Compile Include="VMProvinces.cs" />
-    <Compile Include="ObservableCollection.cs" />
     <Compile Include="Province.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

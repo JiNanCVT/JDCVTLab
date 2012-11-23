@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBingdinSample1", "DataBingdingSample1\DataBingdinSample1.csproj", "{212D3CFE-90A4-48B1-88C1-68366F7C54C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBindindSample1", "DataBingdingSample1\DataBindindSample1.csproj", "{212D3CFE-90A4-48B1-88C1-68366F7C54C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
