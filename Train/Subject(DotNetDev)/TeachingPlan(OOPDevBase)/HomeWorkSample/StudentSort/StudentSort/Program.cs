@@ -10,6 +10,9 @@ namespace StudentSort
     {
         static void Main(string[] args)
         {
+
+            CommandsManagement cm = new CommandsManagement();
+            cm.Execute();
         }
     }
 }
