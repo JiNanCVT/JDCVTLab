@@ -1,0 +1,24 @@
+﻿<Window x:Class="WPFBill.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:my ="clr-namespace:WPFBill"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <my:Bill x:Key="bill"  />
+    </Window.Resources>
+    <StackPanel DataContext="{Binding Source={StaticResource bill}}">
+        <StackPanel Orientation="Horizontal" Margin="5,10,5,5">
+            <Label Content="单价"/>
+            <TextBox  Name="Txb_Price" Text="{Binding Path=Price}" Width="100" HorizontalAlignment="Left"  />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"  Margin="5,10,5,5">
+            <Label Content="数量"/>
+            <TextBox Name="Txb_q" Text="{Binding Path=Q}" Width="100" HorizontalAlignment="Left"  />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="小计"/>
+            <TextBox Text="{Binding Path=Total, Mode=OneWay}" Name="Txb_total" Width="100" HorizontalAlignment="Left"/>
+        </StackPanel>
+        
+    </StackPanel>
+</Window>
