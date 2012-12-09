@@ -28,7 +28,28 @@ namespace CalligraphySample.DataHelper
             return calligraphyers;
         }
 
-        public static void Insert(Calligraphyer c)
+        public static void Save(ObservableCollection<Calligraphyer> calligraphyers)
+        {
+            foreach (var c in calligraphyers)
+            {
+                if (c.Status == EntityBase.Statuses.New)
+                {
+                    Insert(c);
+                    c.Status = EntityBase.Statuses.Updated;
+                }
+                else if (c.Status == EntityBase.Statuses.Edit)
+                {
+                    Update(c);
+                    c.Status = EntityBase.Statuses.Updated;
+                }
+            }
+        }
+
+        private static void Update(Calligraphyer c)
+        {
+        }
+
+        private static void Insert(Calligraphyer c)
         {
             var cnn = DataHelper.CreateConnection();
             string sql = @"INSERT INTO T_Calligrapher

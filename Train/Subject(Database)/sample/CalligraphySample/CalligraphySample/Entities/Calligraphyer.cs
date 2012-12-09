@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CalligraphySample.Entities
 {
-    public class Calligraphyer
+    public class Calligraphyer:EntityBase
     {
         private Guid _id;
 
@@ -20,19 +20,34 @@ namespace CalligraphySample.Entities
         public string Name
         {
             get { return _name; }
-            set { _name = value; }
+            set 
+            {
+                if (value != _name)
+                {
+                    _name = value;
+                    SetPropertyChanged("Name");                    
+                }
+            }
         }
         private string _description;
 
         public string Description
         {
             get { return _description; }
-            set { _description = value; }
+            set
+            {
+                if (value != null)
+                {
+                    _description = value;
+                    SetPropertyChanged("Description");  
+                }
+            }
         }
 
         public Calligraphyer()
         {
             _id = Guid.NewGuid();
+            Status = Statuses.New;
         }
 
         public Calligraphyer(Guid id, string name, string description)
@@ -40,6 +55,7 @@ namespace CalligraphySample.Entities
             _id = id;
             _name = name;
             _description = description;
+            Status = Statuses.Updated;
         }
     }
 }

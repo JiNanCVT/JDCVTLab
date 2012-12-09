@@ -25,16 +25,16 @@ namespace CalligraphySample.ViewModel
             _viewSource = new CollectionViewSource();
             ObservableCollection<Calligraphyer> calligraphyers = CalligrapherDataHelper.Load();
             _viewSource.Source = calligraphyers;
-            _viewSource.View.CollectionChanged += View_CollectionChanged;
+            //_viewSource.View.CollectionChanged += View_CollectionChanged;
         }
 
-        void View_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
-            {
-                CalligrapherDataHelper.Insert((Calligraphyer)e.NewItems[0]);
-            }
-        }
+        //void View_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        //{
+        //    if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
+        //    {
+        //        CalligrapherDataHelper.Insert((Calligraphyer)e.NewItems[0]);
+        //    }
+        //}
 
         public void AddCalligrapher()
         {
@@ -42,6 +42,11 @@ namespace CalligraphySample.ViewModel
             calligraphyer.Name = "书法家";
             calligraphyer.Description="简介";
             ((ObservableCollection<Calligraphyer>)_viewSource.Source).Add(calligraphyer);
+        }
+
+        public void Save()
+        {
+            CalligrapherDataHelper.Save((ObservableCollection<Calligraphyer>)_viewSource.Source);
         }
     }
 }
